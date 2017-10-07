@@ -62,7 +62,7 @@ func main() {
 	usage := `flatten.
 
 Usage:
-  flatten [SOURCE] [DESTINATION] [-c | --copy-only] [-f | --force] [--include-source-files] [-s | --simulate-only] [--verbose]
+  flatten [SOURCE] [DESTINATION] [-c | --copy-only] [-f | --force] [--exclude-source-files] [-s | --simulate-only] [--verbose]
   flatten -h | --help
   flatten -v
 
@@ -75,7 +75,7 @@ Arguments:
 Options:
   -c --copy-only            Do not remove anything from the source directory.
   -f --force                Do not propose a simulation first, immediately execute the command.
-  --include-source-files    Include the files which are directly located in the SOURCE directory.
+  --exclude-source-files    Do not include the files which are directly located in the SOURCE directory.
   -s --simulate-only        Do not move or copy any files on the system,
                             just output the expected result.
   --verbose                 Explain what is being done.
@@ -116,7 +116,7 @@ Options:
 		flatten.SetVerbose()
 	}
 
-	includeSourceFiles := arguments["--include-source-files"].(bool)
+	includeSourceFiles := !arguments["--exclude-source-files"].(bool)
 	copyOnly := arguments["--copy-only"].(bool)
 	simulateOnly := arguments["--simulate-only"].(bool)
 	force := arguments["--force"].(bool)
