@@ -31,7 +31,8 @@ Arguments:
 Options:
   -c --copy-only            Do not remove anything from the source directory.
   -f --force                Do not propose a simulation first, immediately execute the command.
-  --exclude-source-files    Do not include the files which are directly located in the SOURCE directory.
+  --exclude-source-files    Do not include the files which are directly
+                            located in the SOURCE directory.
   -s --simulate-only        Do not move or copy any files on the system,
                             just output the expected result.
   --verbose                 Explain what is being done.
